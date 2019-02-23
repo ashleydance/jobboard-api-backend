@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Job;
+use App\Tag;
 use Illuminate\Http\Request;
 
-class JobController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::with('tags')->get();
-        return view('jobs.index', [ 'jobs' => $jobs ]);
+        //
     }
 
     /**
@@ -25,7 +24,7 @@ class JobController extends Controller
      */
     public function create()
     {
-        return view('jobs.create');
+        //
     }
 
     /**
@@ -36,24 +35,16 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        $job = new Job;
-
-        $job->title         = $request->title;
-        $job->company       = $request->company;
-        $job->description   = $request->company;
-
-        $job->save();
-
-        return redirect('home');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Job  $job
+     * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Job $job)
+    public function show(Tag $tag)
     {
         //
     }
@@ -61,10 +52,10 @@ class JobController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Job  $job
+     * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Job $job)
+    public function edit(Tag $tag)
     {
         //
     }
@@ -73,10 +64,10 @@ class JobController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Job  $job
+     * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Job $job)
+    public function update(Request $request, Tag $tag)
     {
         //
     }
@@ -84,10 +75,10 @@ class JobController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Job  $job
+     * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Job $job)
+    public function destroy(Tag $tag)
     {
         //
     }
