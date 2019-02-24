@@ -17,6 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('jobs', 'Api\JobController');
+Route::apiResource('jobs', 'Api\JobController')->only([
+    'index', 'store', 'show',
+]);
 
-
+Route::apiResource('tags', 'Api\TagController')->only([
+    'index',
+]);

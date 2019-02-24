@@ -18,6 +18,8 @@ class CreateJobsTable extends Migration
             $table->string('title');
             $table->string('company');
             $table->mediumText('description');
+            $table->boolean('approved')->default(false);
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\Api;
 
-use App\Job;
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class JobController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::with('tags')->where('approved', true)->where('active', true)->get();
-        return response()->json($jobs);
+        $tags = Tag::all();
+        return response()->json($tags);
     }
 
     /**
@@ -26,16 +26,8 @@ class JobController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-        {
-        $job = new Job;
-
-        $job->title = $request->title;
-        $job->company = $request->company;
-        $job->description = $request->description;
-
-        $job->save();
-
-        return response()->json($job);
+    {
+        //
     }
 
     /**
@@ -46,8 +38,7 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        $job = Job::with('tags')->findOrFail($id);
-        return response()->json($job);
+        //
     }
 
     /**

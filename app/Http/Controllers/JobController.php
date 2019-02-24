@@ -66,7 +66,7 @@ class JobController extends Controller
      */
     public function show(Job $job)
     {
-        //
+        return view('jobs.show', ['job' => $job]);
     }
 
     /**
@@ -89,7 +89,15 @@ class JobController extends Controller
      */
     public function update(Request $request, Job $job)
     {
-        //
+        if ( $request->approved === "false" ) {
+            $job->approved = 0;
+        } else {
+            $job->approved = 1;
+        }
+
+        $job->save();
+
+        return back();
     }
 
     /**
